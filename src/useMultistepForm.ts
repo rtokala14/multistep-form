@@ -21,11 +21,14 @@ export function useMultistepForm(steps: ReactElement[]) {
         setCurrStepIndex(index)
     }
 
-    return (
+    return {
         currStepIndex,
         step: steps[currStepIndex],
+        steps,
+        isFirstStep: currStepIndex === 0,
+        isLastStep: currStepIndex === steps.length - 1,
         goTo,
         next,
         back,
-    )
+    }
 }
